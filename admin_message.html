@@ -20,6 +20,10 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
 
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body>
@@ -99,7 +103,7 @@
 
             <div class="slide-table">
                 <div class="d-flex justify-content-between">
-                    <h5 class="p-2">สไลด์โชว์</h5>
+                    <h5 class="p-2">ประชาสัมพันธ์</h5>
 
                     <button type="button" class="btn btn-secondary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">เพิ่ม</button>
                   </div>
@@ -107,9 +111,9 @@
                     <thead>
                         <tr>
                             <th>ลำดับ</th>
-                            <th>รูป</th>
                             <th>หัวข้อ</th>
                             <th>รายละเอียด</th>
+                            <th>เปิด/ปิด</th>
                             <th>อัพเดท</th>
                             <th>แก้ไข/ลบ</th>
                         </tr>
@@ -120,10 +124,11 @@
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
+                            <td><input type="checkbox" id="toggle-input"></td>
                             <td>61</td>
-                            <td>2011/04/25</td>
+                            
                             <td>
-                                <a href="update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
+                                <a href="admin_message_update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
                                 <button type="submit" class="btn" title="Delete"><i class="bi bi-trash fa-lg"></i></button>
                             </td>
                         </tr>
@@ -131,10 +136,11 @@
                             <td>Garrett Winters</td>
                             <td>Accountant</td>
                             <td>Tokyo</td>
+                            <td><input type="checkbox" id="toggle-input"></td>
                             <td>63</td>
-                            <td>2011/07/25</td>
+                            
                             <td>
-                                <a href="update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
+                                <a href="admin_message_update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
                                 <button type="submit" class="btn" title="Delete"><i class="bi bi-trash fa-lg"></i></button>
                                 
                             </td>
@@ -143,10 +149,11 @@
                             <td>Ashton Cox</td>
                             <td>Junior Technical Author</td>
                             <td>San Francisco</td>
+                            <td><input type="checkbox" id="toggle-input"></td>
                             <td>66</td>
-                            <td>2009/01/12</td>
+                            
                             <td>
-                                <a href="update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
+                                <a href="admin_message_update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
                                 <button type="submit" class="btn" title="Delete"><i class="bi bi-trash fa-lg"></i></button>
                                 
                             </td>
@@ -155,10 +162,11 @@
                             <td>Cedric Kelly</td>
                             <td>Senior Javascript Developer</td>
                             <td>Edinburgh</td>
+                            <td><input type="checkbox" id="toggle-input"></td>
                             <td>22</td>
-                            <td>2012/03/29</td>
+                            
                             <td>
-                                <a href="update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
+                                <a href="admin_message_update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
                                 <button type="submit" class="btn" title="Delete"><i class="bi bi-trash fa-lg"></i></button>
                             </td>
                         </tr>
@@ -166,10 +174,11 @@
                             <td>Airi Satou</td>
                             <td>Accountant</td>
                             <td>Tokyo</td>
+                            <td><input type="checkbox" id="toggle-input"></td>
                             <td>33</td>
-                            <td>2008/11/28</td>
+                            
                             <td>
-                                <a href="update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
+                                <a href="admin_message_update.html"><i class="bi bi-pencil-square fa-lg" title="Edit"></i></a>
                                 <button type="submit" class="btn" title="Delete"><i class="bi bi-trash fa-lg"></i></button>
                             </td>
                         </tr>
@@ -182,29 +191,38 @@
 
             <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog ">
       <div class="modal-content">
         <div class="modal-header" style="background-color: #9FD7FF;">
           <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูล</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <div class="container d-flex justify-content-center" style="width: 100%;">
-                <div class="box" style="width: 80%;">
+        <div class="modal-body ">
+            <div class="container ">
+                <div class="box ">
                     <form>
-                        <div class="form-row">
+                        <div class="form-row" style="width: 100%;">
                             <div class="form-group col-md-6 mb-3">
-                                <label for="inputEmail4">ชื่อ:</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Name">
+                                <label for="inputEmail4">หัวข้อ:</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="ชื่อ">
                             </div>
-                                <div class="form-group col-md-6 mb-3">
-                                <label for="formFileLg" class="form-label">เพิ่มรูปภาพ:</label>
-                                <input class="form-control" id="formFileLg" type="file">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="inputEmail4">รายละเอียด:</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 200px; width: 100%;"></textarea>
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">รายละเอียด:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 200px;"></textarea>
+                            <div class="form-group col-md-6 mb-3">
+                                <label>สถานะ: </label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">เปิด</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio1">ปิด</label> 
                             </div>
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="inputEmail4">เพิ่มรูปภาพ:</label>
+                                <input type="file" id="inputEmail4" placeholder="อีเมล">
+                            </div>
+                            
+                                
                         </div>
                       
 
@@ -214,8 +232,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-primary">บันทึก</button>
         </div>
     </form>
       </div>
@@ -239,6 +257,15 @@
         $(document).ready(function () {
             $("#myTable").DataTable();
         });
+
+
+        //Button On/Off in Table
+        $(function () {
+         $('#toggle-input').bootstrapToggle({
+            on: 'ON',
+            off: 'OFF'
+         });
+      })
     </script>
 </body>
 </html>
